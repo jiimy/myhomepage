@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="mgmt/board/skin/<?=$cyboard_var['skinName']?>/css/board.css">
+<div class="boardviewWrap">
+	<div class="boardSearch">
+		<dl>
+			<dt><label for="dropDownList">게시물 검색 영역</label></dt>
+			<dd>
+				<select name="o_search" id="">
+					<option value="title">제 목</option>
+					<option value="content">내 용</option>
+					<option value="author_name">작성자</option>
+					<option value="title_content">제목+내용</option>
+				</select>
+			</dd>
+			<dt><label for="textSearch">키워드</label></dt>
+			<dd>
+				<input type="text" name="o_searchstr" value style="width:180px" />
+				<a href="#" class="btn_search"><img src="mgmt/board/skin/<?=$cyboard_var['skinName']?>/images/btn_search.gif" alt="검색하기" /></a>
+			</dd>
+		</dl>
+	</div>
+	<div class="viewTable">
+		<?=$dispCateStart?>
+		<dl>
+			<dt>카테고리</dt>
+			<dd><?=$dispCategory?></dd>
+		</dl>
+		<?=$dispCateEnd?>
+		<dl>
+			<dt>제목</dt>
+			<dd><?=$dispTitle?></dd>
+		</dl>
+		<dl>
+			<dt>작성자</dt>
+			<dd class="w120"><?=$dispName?></dd>
+			<dt>작성일</dt>
+			<dd class="w140"><?=$dispWDate?></dd>
+			<dt>조회수</dt>
+			<dd><?=$dispCnt?></dd>
+		</dl>
+		<?=$dispFileStart?>
+		<dl class="file">
+			<dt>파일</dt>
+			<dd><?=$dispFileList?></dd>
+		</dl>
+		<?=$dispFileEnd?>
+		<div class="viewCon">

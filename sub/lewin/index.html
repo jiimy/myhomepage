@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>HOTEL LE WIN</title>
+	<link rel="stylesheet" href="css/default.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<!--[if lt IE 9]> 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+
+        $('#box_link').toggle(
+        function() {
+        	$('.box_main').animate({
+                width: "0"
+            }, 500, function() {
+                $('.box_main').hide();
+                $('#box_img').attr("src", "qm.png");
+            });
+        }, 
+        function() {
+            $('.box_main').animate({
+                    width: '170'
+                }, 500);
+            $('#box_img').attr("src", "close.png");
+        });
+    });
+
+</script>
+
+<body>
+<div class="body">
+<div class="bodyWrap">
+<a href="#main"	 class="skip">본문 바로가기</a>
+
+<!-- 우측 gnb -->
+	<div class="box_wrap">
+		<div class="box_main">
+			<div class="img">
+				<a href="#"><img src="./logo.png" alt="#"></a>
+			</div>
+		<ul class="gnb" id="nav">
+			<li><a href="./sub_page/about.html" id="nav1">ABOUT LE WIN</a></li>
+			<li><a href="./sub_page/accom.html" id="nav2">ACCOMMODATION</a></li>
+			<li><a href="#" id="nav3">DINING</a></li>
+			<li><a href="#">WEDDING</a></li>
+			<li><a href="#">SPEACIAL OFFERS</a></li>
+			<li><a href="#">FACILITIES</a></li>
+			<li><a href="#">LOCATIONM</a></li>
+		</ul>
+		<ul class="info">
+			<li class="pin1">INFOMATION</li>
+			<li class="pin2">063-232-7000</li>
+		</ul>
+		<ul class="sub">
+			<li><a href="#">고객센터</a></li>
+			<li><a href="#">채용안내</a></li>
+		</ul>
+		<div class="sub_gnb">
+			<ul>
+				<li><a href="#">디럭스</a></li>
+				<li><a href="#">비즈니스</a></li>
+				<li><a href="#">시티디럭스</a></li>
+				<li><a href="#">주니어스위트</a></li>
+				<li><a href="#">로얄 스위트</a></li>
+			</ul>
+		</div>
+		</div>
+		<div class="box_button" >
+			<a href="#" id="box_link"><img id="box_img" src="close.png" alt="#" title="sideBar"></a>
+		</div>
+	</div>
+
+	<div class="centerWrap">
+		<!-- 검색창 상단 -->
+		<div class="etc">
+			<ul>   
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">멤버쉽</a></li>
+				<li><a href="#">예약확인</a></li>
+			</ul>
+		</div>
+
+			
+			<!-- 검색창 -->
+		<div class="search">
+			<ul>
+				<a href="#"><li class="se1"><span>BRANCH</span><img src="point.png" alt="#"></li></a>
+				<a href="#"><li class="se2"><span>TYPE</span><img src="point.png" alt="#"></li></a>
+				<a href="#"><li class="se3"><span>2017. 02. 08 ~ 2017. 02. 09</span><img src="point.png" alt="#"></li></a>
+				<a href="#"><li class="se4"><span>ADULT</span><img src="point.png" alt="#"></li></a>
+				<a href="#"><li class="se5"><span>CHILD</span><img src="point.png" alt="#"></li></a>
+				<a href="#"><li class="se6"><span>객실검색</span></li></a>
+			</ul>
+		</div>
+			<!-- 타이포 -->
+		<div class="center">
+			<span class="c1">AROUND TORUISM</span><br>
+			<span class="c2">Jeon-Ju Hanok Vilage</span><br>
+			<span class="c3">전주여행 1번지 한옥마을 슬로우 투어</span>
+		</div>
+	</div>
+</div>
+<!-- </div>	 -->
+<!-- 바닥 부분 -->
+<footer>
+
+	<div class="footerWrap">
+		<span class="f1">COPYRIGHT &copy 2014 LEWIN HOTEL.ALL RIGHTS RESERVED.</span>
+		<ul class="f2">
+			<li><a href="#">개인정보보호정책</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#">식자재</a></li>
+		</ul>
+	</div>	
+</footer>
+</div>
+</body>
+</html>

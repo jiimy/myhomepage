@@ -1,0 +1,23 @@
+<style>
+	/* 비밀글일때 비밀번호 입력 */
+	.secret{width:550px;border:1px solid #ccc;position:relative;font-family:NG,NanumGothic,나눔고딕,돋움,dotum;margin:0 auto;}
+	.secret div{padding:25px 25px 35px 25px}
+	.secret div h4{font-size:16px;margin:0 0 30px 0;padding:0 0 10px 0;border-bottom:1px solid #ccc;font-weight:600}
+	.secret div span{display:block;font-size:14px;color:#444;vertical-align:middle;text-align:center}
+	.secret div span input{width:100px;height:22px;border:1px solid #bbb;vertical-align:middle;margin:0 0 0 7px}
+	.secret div span.coment{margin:10px 0 0 0;font-size:13px}
+	.secret a{display:inline-block;width:50px;background:#d5d5d5;text-decoration:none;color:#444;text-align:center;border-radius:2px;font-size:12px;border:1px solid #bbb}
+	.secret div span a{height:20px;margin:0 0 0 7px;padding:4px 0 0 0;vertical-align:middle}
+	.secret .golist{display:block;background:#e2e2e2;height:36px}
+	.secret .golist a{height:20px;padding:3px 0 0 0;margin:6px 0 0 490px;background:#fff;border:1px solid #aaa}
+</style>
+
+
+<div class="secret">
+	<div>
+		<h4>암호확인</h4>
+		<span>암호<input type="password" name="o_chk_pass"><a href="javascript: onBoard(document.fBoard);">확인</a></span>
+		<span class="coment">글 작성시 입력한 인증정보(암호)를 입력해주세요.</span>
+	</div>
+	<span class="golist"><a href="<?=$dispLink?>">목록</a></span>
+</div>

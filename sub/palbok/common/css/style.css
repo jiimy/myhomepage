@@ -1,0 +1,101 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* Reset */
+
+html, body {
+	/*min-height: 100%*/
+}
+
+body {	background: #fff;	overflow-y: scroll;}
+
+
+body, div, hr, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, form, fieldset, input, button, textarea, select, address {	margin: 0;	padding: 0}
+body, table, input, textarea, select, button {	font-family: "NanumBarun Gothic", "Nanum Gothic", Dotum, Tahoma, Geneva, sans-serif !important;	font-size: 12px}
+header, footer, section, article, nav, aside, figure, figcaption {	display: block}
+ul, ol, dl {	list-style: none}
+a, a:before, a:default, a:visited, a:active, a:link {	-ms-text-decoration: none;	text-decoration: none;	margin: 0;	padding: 0;	color: white;}
+p {	margin: 0;	padding: 0}
+.gnb #topnave a:visited {	text-decoration: none;	color: #181818;}
+img {	border: 0;	margin: 0;	padding: 0;}
+hr {	/*display: none*/}
+.front .content {	outline: 0;	/*overflow: auto;*/	margin-top: 46vh;	margin-left: auto;	width:calc(100% - 270px);	/*padding-bottom: 80px;*/}
+.content{	outline: 0;	/*overflow: auto;*/	margin-left: auto;	width:calc(100% - 270px);	/*padding-bottom: 80px;*/}
+.content:after{display: block; content: ''; clear: both;}
+/*.header img, .lnb img, .footer img,.front .content img,.contentTitle img{display:block}*/
+
+/* Skip to Content Button */
+.skipToContent {	display: block;	width: 120px;	z-index: 1;	position: absolute;	left: 50%;	top: 10px;	margin: 0 0 0 -60px}
+.skipToContent a {	display: block;	height: 1px;	overflow: hidden;	text-indent: -1000px;	cursor: default}
+.skipToContent a:focus, .skipToContent a:active {	height: 12px;	text-align: center;	text-indent: 0;	padding: 7px 0;	background: #666;	color: #fff;	border-radius: 15px}
+
+/* IE6 PNG bug fix */
+.png24 {	tmp: expression(setPng24(this))}
+
+/* for Screen Reader */
+.blind {	visibility: hidden;	overflow: hidden;	position: absolute;	top: 0;	left: 0;	width: 1px;	height: 1px;	font-size: 0;	line-height: 0}
+/*배경처리*/
+.body:after{display: block; content: ''; clear: both;}
+.front {
+	/*overflow-y: hidden;*/
+	background-image: url('../images/bg/bg.jpg');
+	/*background-repeat: no-repeat;*/
+	/*background-size: 100% 100%;*/
+	position: relative;
+	color: white;
+}
+/*헤더 부분*/
+.front .wrap header { width: 271px; position: fixed;	left: -1px;	top: 0px; padding-left: 26px; padding-top: 35px; background: none;}
+.wrap header { position: fixed;	left: -1px;	top: 0px; padding-left: 26px; padding-top: 35px; background: url('../images/bg/header-bg.jpg') no-repeat center; min-height: 100%;}
+.wrap header:after{background: black;}
+.headerWrap {	width: 245px;}
+.gnb{margin-top: 65px;}
+#gnb {	width: 222px; font-size: 17px;}
+#gnb>li {	display: block;}
+#gnb>li>a {	display: block;	padding: 10px 30px;	text-align: center;}
+#gnb>li>ul {	display: none;}
+#gnb>li>ul>li {	padding: 5px 0 5px 30px;	text-align: left;}
+#gnb>li>a {	display: inline-block;	position: relative;	text-decoration: none;	padding: 10px 10px;	color: white;	font-weight: 600;}
+#gnb>li>a:hover {	color: #c3751c;	font-weight: bold;}
+#gnb>li>a:after {	content: '';	position: absolute;	bottom: -2px;	left: 0;	width: 100%;	height: 2px;	background-color: #c3751c;	transform: scaleX(0);	transform-origin:bottom left;	transition: transform 0.3s;}
+#gnb>li>a:hover:after {	transform: scaleX(1);}
+#gnb>li>ul>li>a {	color: white;	display: block; text-decoration: none;}
+#gnb>li>ul>li>a:before {content: "- "; color:white;}
+#gnb>li>ul>li>a:hover:before{color:#c3751c;}
+#gnb>li>ul>li>a:hover {	color: #c3751c;}
+.on>a{	color: #c3751c!important;	border-bottom: 2px solid #c3751c;	display: inline-block;	/*margin-bottom: -1px;*/	text-align: left;}
+.gnb+hr{display: block; height: 2px; border:none; background: #2b2b2b; margin-top: 110px; margin-bottom: 50px;}
+.sns li{display: inline-block; margin-right: 22px;}
+.sns li:first-child{margin-left: 10px;}
+/*마우스 오버(이미지 변경)*/
+.sns li:nth-child(1):hover{	background: url('../images/ico/facebook_over.png') no-repeat 0 0px;}
+.sns li:nth-child(1):hover a img{opacity: 0;}
+.sns li:nth-child(2):hover{background: url('../images/ico/instar_over.png') no-repeat 0 0px;}
+.sns li:nth-child(2):hover a img{opacity: 0;}
+.sns li:nth-child(3):hover{background: url('../images/ico/blog_over.png') no-repeat 0 0px;}
+.sns li:nth-child(3):hover a img{opacity: 0;}
+
+.bottom-logo{	position: absolute; bottom: 70px; padding-top: 100px;	background: url('../images/btm-logo.png') no-repeat 0 60px; opacity: 0.7;}
+.bottom-logo p{font-size: 11px; line-height: 17px; color: white;}
+
+.front .wrap{ overflow: auto; background: transparent;}
+.wrap{overflow: auto; background: #f7f7f7;}
+.notice-wrap{width: 1200px; margin: 0 auto;}
+.notice{width: 355px;	height: 210px;	background: rgba(0,0,0,0.5);	padding: 30px 33px 0px 35px; margin-left: auto;}
+.notice>span{color: #f79423; font-size: 22px; position: relative; display: block; margin-bottom: 26px; font-weight: bold;}
+.notice span a{font-size: 30px; position: absolute; right: 0; bottom: 0px; color:#f79423; text-decoration: none;}
+.notice ul li{font-size: 13px; line-height: 31px; position: relative;}
+.notice ul li a{text-decoration: none;}
+.notice ul li a:hover{text-decoration: underline;}
+.notice ul li a+span{	position: absolute;	float: left;	right: 0;}
+.build{width: 1200px; margin: 0 auto; margin-bottom: 5vh;}
+.build img{margin: 0 auto; }
+
+/*서브페이지*/
+.sub{
+	width: 1050px;
+	margin: 0 auto;
+	height: 100%;
+	/*height: 2000px;*/
+}

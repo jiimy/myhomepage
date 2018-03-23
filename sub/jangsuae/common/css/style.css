@@ -1,0 +1,161 @@
+@charset "euc-kr";
+/* BP(http://bluet.kr/) in Sehee S&D(http://sehee.co.kr/) 2013-02-06 */
+
+/* Reset */
+html,body{min-height:100%}
+body{background:#fff;overflow-y:scroll;.overflow-y:none}
+body,div,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,form,fieldset,input,button,textarea,select,address{margin:0;padding:0}
+body,table,input,textarea,select,button{font-family:NanumBarunGothic,NBG,NG,Nanum Gothic,Dotum,Tahoma,Geneva,sans-serif !important;font-size:12px}
+header,footer,section,article,nav,aside,figure,figcaption{display:block}
+ul,ol,dl{list-style:none}
+a{color:#363636;text-decoration:none;}
+img{border:0}
+hr{display:none}
+.content{outline:0}
+.header img, .lnb img, .footer img,.front .content img,.contentTitle img{display:block}
+
+/* Skip to Content Button */
+.skipToContent{display:block;width:120px;z-index:1;position:absolute;left:50%;top:10px;margin:0 0 0 -60px}
+.skipToContent a{display:block;height:1px;overflow:hidden;text-indent:-1000px;cursor:default}
+.skipToContent a:focus,.skipToContent a:active{height:12px;text-align:center;text-indent:0;padding:7px 0;background:#666;color:#fff;border-radius:15px}
+
+/* IE6 PNG bug fix */
+.png24{tmp:expression(setPng24(this))}
+
+/* for Screen Reader */
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
+
+/* Layout */
+body{background:#fff;color: black;}
+.wrap{width:100%;margin:0 auto;position:relative;}
+/*.header{position:relative;height:110px;border-top:3px solid #bc1224;border-bottom:1px solid #ddd}*/
+.headerWrap{position:relative;width:1200px;margin:0 auto;}
+.mainVisual{width:100%;height:430px;position:relative;margin:0 auto;background: url('../images/dummy/mv.jpg') no-repeat center;}
+.mainVisual img{display:block}
+.mainVisual span{position: absolute;top: 200px;width: 560px;height: 47px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: white;font-size: 50px;}
+.mainVisual hr{position: absolute;top: 150px;left: 0;right: 0;margin-left: auto;margin-right: auto;height: 1px;width: 70px;background: white;border: none;display: block;}
+.front .body{padding:0 0 0px 0;background:none}
+.front .content{width:100%;float:none;padding:0px 0 0 0;background:none}
+/*.lnb{width:210px;padding:0 30px}*/
+.sidebar{}
+.footer{width:100%;}
+
+/* Header */
+header{width: 100%;height: 95px;border-top: 3px solid #f37221;}
+.headerWrap{width: 1200px;margin: 0 auto;}
+.headerWrap:after{display: block;clear: both;content: "";}
+.headerWrap h1{float: left;margin-top: 10px;}
+.headerWrap nav{float: left;width: 800px;height: 95px;border-right: 1px solid #e2e2e2;}
+.headerWrap nav ul{font-size: 20px;margin-top: 40px;}
+.headerWrap nav ul li{display: inline-block;margin-left: 50px;}
+.headerWrap nav ul li a:hover , .front .headerWrap nav ul li a:active{
+color: #f26721;border-bottom: 3px solid #f26721;padding-bottom: 10px;}
+
+/*header 아이콘 부분*/
+.headerWrap .topnav{float: left;width: 306px;font-size: 14px;}
+.headerWrap .topnav:after{display: block;clear: both;content: "";}
+/*주문배송조회*/
+.headerWrap .topnav .dil{width: 100px;height: 95px;border-right: 1px solid #e2e2e2;float: left;text-align: center;}
+.headerWrap .topnav .dil p{background: url(../images/dummy/top-nav.icon1.gif) no-repeat center;margin: 0 auto;margin-top: 25px;margin-bottom: 12px;width: 38px;height: 28px;}
+.headerWrap .topnav .dil:hover span{color: #f37221;}
+.headerWrap .topnav .dil:hover p{background: url(../images/dummy/over.gif) no-repeat center;}
+/*장바구니*/
+.headerWrap .topnav .basket{width: 100px;height: 95px;border-right: 1px solid #e2e2e2;float: left;text-align: center;}
+.headerWrap .topnav .basket text{border-radius: 50%;color: white;background: #f37221;width: 22px;height: 22px;display: block;margin-top: -65%;margin-left: 55%;}
+ .headerWrap .topnav .basket text span{padding-top: 3px;color: white;display: block;}
+ .headerWrap .topnav .basket p{background: url(../images/dummy/top-nav.icon2.gif) no-repeat center;margin: 0 auto;margin-top: 25px;margin-bottom: 12px;width: 31px;height: 28px;}
+.headerWrap .topnav .basket:hover p~span{color: #f37221;}
+.headerWrap .topnav .basket:hover p{background: url(../images/dummy/over2.gif) no-repeat center;}
+/*로그인*/
+.headerWrap .topnav .login{ width: 103px;float: right;height: 46px;text-align: center;border-right: 1px solid #e2e2e2;}
+.headerWrap .topnav .login span{display: block;margin-top: 16px;}
+.headerWrap .topnav .login:hover span{color: #f37221;}
+/*회원가입*/
+.headerWrap .topnav .regi{width: 103px;float: right;height: 46px;text-align: center;border-right: 1px solid #e2e2e2;border-top: 1px solid #e2e2e2;}
+.headerWrap .topnav .regi span{display: block;margin-top: 16px;}
+.headerWrap .topnav .regi:hover span{color: #f37221;}
+
+/*중앙 멘트 부분*/
+.top-title{margin: 0 auto;width: 1200px;margin-bottom: 120px;margin-top: 70px;}
+.top-title:after{display: block;content: "";clear: both;}
+.top-title>hr{display: block;background: black;width: 60px;height: 1px;margin: 0 auto;margin-top: 24px;margin-bottom: 24px;border: none;}
+.top-title h3:nth-of-type(1){font-size: 32px;}
+.top-title h3{text-align: center;font-size: 30px;margin-top: 20px;padding-left: 10px;}
+.top-title h3:nth-of-type(2){text-shadow: 3px 3px 3px #333;}
+.top-title p{text-align: center;font-size: 14px;margin-top: 20px;line-height: 22px;}
+.top-title .prowrap  hr{display: block;width: 35px;height: 1px;background: white;border: none;margin: 0 auto;margin-top: 20px;}
+.top-title span{font-size: 15px;text-align: center;margin-bottom: 50px;display: block; line-height: 22px;}
+.top-title .prowrap{color: white;}
+.top-title .one{width: 380px;height: 315px;float: left;background: url(../images/dummy/pro-one.jpg) no-repeat center;}
+.top-title .prowrap h3{margin-top: 25px;font-weight: normal;line-height: 39px;}
+.top-title .two{width: 380px;height: 315px;float: left;margin-left: 29px;background: url(../images/dummy/pro-two.jpg) no-repeat center;}
+.top-title .three{width: 380px;height: 315px;float: right;background: url(../images/dummy/pro-three.jpg) no-repeat center;}
+.top-title .one:hover, .front .content .top-title .two:hover, .front .content .top-title .three:hover{background: url(../images/dummy/pro-one-off.jpg) no-repeat center;}
+
+/*움채의 제품을 소개합니다 그림 부분*/
+.item{border: 1px solid #dcdcdc;}
+.item .bg{background: url(../images/dummy/centerbg.jpg) no-repeat center;width: 100%;height: 340px;position: relative;color: white;z-index: -1;}
+.item .bg h3{font-size: 34px;text-shadow: 2px 2px 2px #2f2f2f;text-align: center;padding-top: 69px;margin-bottom: 20px;}
+.item .bg hr{display: block;width: 60px;height: 1px;background: white;border: none;margin: 0 auto;}
+.item .bg p{font-size: 15px;text-align: center;margin-top: 24px;line-height: 160%;}
+
+/*상품부분*/
+.items{width: 1200px;margin: 0 auto;z-index: 1;margin-top: -90px;padding-bottom: 69px;}
+.items ul li{width: 287px;height: 380px;margin-left: 13px;display: inline-block;text-align: center;box-sizing: border-box;border: 1px solid #e5e5e5;margin-bottom: 54px;}
+.items ul li p{margin-top: 20px;font-size: 17px;line-height: 30px;}
+.items ul li p span{font-weight: 600;}
+.items ul li:nth-child(4n+1){margin-left: 0;}
+.items .detail{width: 325px;margin: 0 auto;}
+
+/*구매후기부분*/
+.epil{width: 1200px;margin: 0 auto;}
+.epil h3{text-align: center;font-size: 32px;margin-top: 70px;	margin-bottom: 24px;}
+.epil>hr{display: block;width: 60px;height: 1px;background: #000000;margin: 0 auto;border: none;margin-bottom: 24px;}
+.epil p{text-align: center;font-size: 15px;margin-bottom: 50px;line-height: 22px;}
+.epil ul li{display: inline-block;margin-left: 13px;width: 226px;}
+.epil ul li:first-child{margin-left: 0;}
+.epil ul li p{font-weight: 600;text-align: left;font-size: 15px;margin-top: 10px;margin-bottom: 10px;white-space: nowrap;overflow: hidden;text-overflow:ellipsis}
+.epil ul li span{font-weight: normal;font-size: 13px;color: #999;}
+.epil ul li hr{display: block;width: 100%;height: 1px;background: #dedede;border: none;margin-bottom: 17px;}
+.epil ul li a img{width: 226px;height: 230px;}
+.epil .detail{width: 325px;margin: 0 auto;margin-top: 50px;margin-bottom: 80px}
+
+/*서브페이지*/
+/*상담에 고정된 백그라운드*/
+.top-bg{
+	background: url(../images/content/bg.jpg) no-repeat center;width: 100%;height: 240px;}
+/*움채소개 타이틀*/
+.lnb{width: 100%;margin-bottom: 80px;}
+.lnb h2{width: 100%;height: 70px;background: #fff8f4;font-size: 33px;text-align: center;border-bottom: 1px solid #ababab;padding-top:35px;display: block;color: #333333;margin-bottom: 60px;font-weight: normal;}
+.lnb ul{width: 100%;margin: 0 auto;text-align: center;}
+.lnb ul li{width: 200px;box-sizing: border-box;border: 1px solid #bbbbbb;display: inline-block;}
+.lnb ul li.active{background: #f37221;border: none;}
+.lnb ul li.active a{color: white;}
+.lnb ul li~li{margin-left: 15px;}
+.lnb ul li a{text-align: center;padding: 15px 0 15px 0;display: block;font-size: 18px;color: #333;font-weight: 600;}
+
+/*서브내용*/
+.sub-content{width: 1200px;height: 800px;background: gray;margin: 0 auto;margin-bottom: 155px;}
+
+/*푸터*/
+footer{width: 100%;height: 228px;color: white;}
+footer .footerline1 .footerwrap1:after, footer .footerline2 .footerwrap2:after{content: "";display: block;clear: both;}
+footer .footerline1 .footerwrap1, footer .footerline1 .footerwrap2{width: 1200px;margin: 0 auto;}
+/*푸터 첫번째 줄*/
+footer .footerline1{width: 100%;height: 45px;background: #30343a;}
+footer .footerline1 .footerwrap1 ul{float: left;margin-top: 15px;}
+footer .footerline1 .footerwrap1 ul li{display: inline-block;white-space: pre;}
+footer .footerline1 .footerwrap1 ul li a{color: white;}
+footer .footerline1 .footerwrap1 .top{width: 60px;height: 45px;float:right;}
+footer .footerline1 .footerwrap1 .bank{float: left;font-size: 17px;font-weight: 600;margin-top: 12px;margin-left: 41%;}
+footer .footerline1 .footerwrap1 .bank span{font-size: 16px;white-space: pre;}
+/*푸터 두번째 줄*/
+footer .footerline2{width: 100%;height: 183px;background: #40454e;}
+footer .footerline2 .footerwrap2{width: 1200px;margin:0 auto;}
+footer .footerline2 .footerwrap2 .address{font-size: 13px;line-height: 24px;float: left;margin-top: 43px;border-right: 1px solid #65696f;}
+footer .footerline2 .footerwrap2 .address p{margin-right: 70px;}
+footer .footerline2 .footerwrap2 .call{margin-top: 40px;float:left;}
+footer .footerline2 .footerwrap2 .call p{margin-left: 70px;font-size: 18px;line-height: 40px;}
+footer .footerline2 .footerwrap2 .call p span{font-size: 33px;font-family: "Dinmed";}
+footer .footerline2 .footerwrap2 .time{margin-top: 43px;float:right;font-size: 13px;text-align: justify;line-height: 20px;}
+footer .footerline2 .footerwrap2 .time p{white-space: pre;}

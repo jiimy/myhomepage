@@ -1,0 +1,21 @@
+		</ul>
+	</div>
+	<?=$dispTailReadEnd?>
+
+	<?=$dispTailWriteStart?>
+	<div class="replyWrite">
+		<dl class="info_write">
+			<dt>이 름 :</dt>
+			<dd><input type="text" size="10" name="o_name" value="<?=$_SESSION['s_cymembername']?>"></dd>
+			<dt>암 호 :</dt>
+			<dd><input type="password" size="8" name="o_password"></dd>
+			<dt style="float:none">※ 보안코드입력</dt>
+			<dd style="margin:5px 0 0 3px"><img src="mgmt/secNum.php?w=48&h=15" alt=""><input type="text" size="7" name="o_secNum"></dd>
+		</dl>
+		<dl class="con_write">
+			<dt>내 용 :</dt>
+			<dd><textarea cols="100" name="o_content" rows="6" wrap="virtual"></textarea></dd>
+			<input class="write_btn" type="button" value="쓰기" onClick="SubmitConfirm(document.fTail);">
+		</dl>
+	</div>
+	<?=$dispTailWriteEnd?>

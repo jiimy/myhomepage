@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>팔복예술공장</title>
+		<link rel="stylesheet" type="text/css" href="common/css/style.css">
+
+		<script src="common/script/common.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+		</script>
+		<!--[if lt IE 9]>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<![endif]-->
+</head>
+<body class="front">
+	<div class="wrap">
+		<p class="skipToContent"><a href="#content"></a></p>
+		<header class="header">
+			<div class="headerWrap">
+				<!-- 상단 정중앙 로고 -->
+				<nav class="logo">
+					<a href=""><img src="common/images/logo.png" alt="상단 로고"></a>
+				</nav>
+				<!-- gnb메뉴 -->
+				<nav class="gnb">
+					<ul id="gnb">
+						<li><a href="#">팔복예술공장소개</a>
+							<ul>
+								<li><a href="">회사소개</a></li>
+								<li><a href="">연혁</a></li>
+								<li><a href="">오시는 길</a></li>
+							</ul>
+						</li>
+						<li><a href="#">공간소개</a>
+							<ul>
+								<li><a href="">건축석</a></li>
+								<li><a href="">보도판석</a></li>
+								<li><a href="">굴림석</a></li>
+								<li><a href="">자연석/판석 규격표</a></li>
+							</ul>
+						</li>
+						<li><a href="#">프로그램소개</a>
+							<ul>
+								<li><a href="">창작스튜디오</a></li>
+								<li><a href="">전 시</a></li>
+                <li><a href="">놀이교육</a></li>
+                <li><a href="">공연 · 행사</a></li>
+							</ul>
+						</li>
+						<li><a href="#">아카이브</a>
+							<ul>
+								<li><a href="">인증서</a></li>
+								<li><a href="">특허증</a></li>
+								<li><a href="">수상내역</a></li>
+							</ul>
+						</li>
+						<li><a href="#">커뮤니티</a>
+							<ul>
+								<li><a href="">공지사항</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<hr>
+				<ul class="sns">
+					<li><a href="#"><img src="common/images/ico/facebook.png" alt=""></a></li>
+					<li><a href="#"><img src="common/images/ico/instar.png" alt=""></a></li>
+					<li><a href="#"><img src="common/images/ico/blog.png" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="bottom-logo">
+				<p>Copyright &copy 2017 전주문화재단 팔복예술공장. <br> All rights reserved.</p>
+			</div>
+		</header>
+		<div class="body">
+			<section class="content" id="content">
+				<div class="wrap">
+					<div class="notice-wrap">
+						<div class="notice">
+							<span>공지사항<a href="">+</a></span>
+							<ul>
+								<li><a href="">팔복예술공장 9월 전시 일정 안내</a><span>17-09-04</span></li>
+								<li><a href="">9월 5일 ~ 10일 홍길동 작가 전시회 안내</a><span>17-09-03</span></li>
+								<li><a href="">팔복예술공장 홈페이지를 오픈했습니다.</a><span>17-09-02</span></li>
+								<li><a href="">팔복예술공장 홈페이지 점검 중입니다.</a><span>17-09-01</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="build">
+						<img src="common/images/bg/build.png" alt="">
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<footer class="footer">	</footer>
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#gnb>li").click(function(){
+		if($(this).find("ul").css("display")=="none"){
+			$("#gnb li ul").slideUp();
+			// $(".plus").html("+");
+			$(this).find('ul').slideDown();
+			// $(this).html("x");
+		}
+		else{
+			$(this).find('ul').slideUp();
+			// $(this).html("+");
+		}
+		$('#gnb>li').removeClass('on');
+		$(this).addClass('on');
+	});
+
+});
+</script>
+
+</body>
+</html>

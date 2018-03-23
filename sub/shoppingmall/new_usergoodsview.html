@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>쇼핑몰 상품 상세페이지</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<style>
+	ul,li,body,h1,h2,h3,h4,h5,h6{margin: 0; padding: 0;}
+	ul li{list-style: none;}
+	a{text-decoration: none;}
+	*{font-family: "NanumBarunGothic";}
+	p{text-align: center; line-height: 30px;}
+
+	.shCMSshop{margin: 0;	padding: 60px 0 0 0;	width: 1200px; margin: 0 auto;}
+	.shCMSshop .shopView .viewHeader:after{display: block; content: ''; clear: both;}
+	.shCMSshop .shopView .viewHeader .productImg{float: left; }
+	.shCMSshop .shopView .viewHeader .productImg .mainImg{width: 500px; height:500px; background: #000;}
+	.shCMSshop .shopView .viewHeader .productImg ul{margin-top: 35px;}
+	.shCMSshop .shopView .viewHeader .productImg ul li{width: 85px; height:85px; background: #000; display: inline-block;margin-right: 25px; border:1px solid #ccc; cursor: pointer;}
+	.shCMSshop .shopView .viewHeader .productImg ul li:first-child{margin-left: 30px;}
+
+	.shCMSshop .shopView .viewHeader .productInfo{margin-left: 50px; width: 650px; float:left;}
+	.shCMSshop .shopView .viewHeader .productInfo h3{font-size: 23px;margin-bottom: 63px;}
+	.shCMSshop .shopView .viewHeader .productInfo .price{border-bottom: 1px solid #e6e6e6;padding-bottom: 16px;}
+	.shCMSshop .shopView .viewHeader .productInfo .price:after{display: block; content:''; clear: both;}
+	.shCMSshop .shopView .viewHeader .productInfo .sale{font-size: 45px; font-family:"Arial"; color:#e63740; font-weight: bold; float: left;}
+	.shCMSshop .shopView .viewHeader .productInfo .sale span{font-size: 25px;}
+	.shCMSshop .shopView .viewHeader .productInfo .cost-price{float: left; margin: 5px 0 0 20px; font-size: 15px; color: #5a5a5a; text-decoration: line-through;}
+	.shCMSshop .shopView .viewHeader .productInfo .sale-price{float: left; margin: 15px 0 0 -55px; font-family: "Tahoma"; font-weight: bold; font-size: 25px;}
+
+	.shCMSshop .shopView .viewHeader .productInfo .price~.manufact, .categori, .origin{padding: 16px 0 16px 10px; border-bottom: 1px solid #e6e6e6; font-size: 18px; white-space: pre;}
+	.shCMSshop .shopView .viewHeader .productInfo .price~.manufact span, .categori span, .origin span{color:#6a6a6a;}
+	.shCMSshop .shopView .viewHeader .productInfo .items{padding: 16px 0;}
+	.shCMSshop .shopView .viewHeader .productInfo .items select{width: 630px; height: 40px; margin: 0 auto; display: block; border: 1px solid #cdcdcd;}
+	.shCMSshop .shopView .viewHeader .productInfo .item{padding: 16px 0 16px 10px; border-bottom: 1px solid #e6e6e6; position: relative;}
+	.shCMSshop .shopView .viewHeader .productInfo .item:after{display: block;content: '';clear: both;}
+	.shCMSshop .shopView .viewHeader .productInfo .item a{width: 25px; height:25px; background: #f8f8f8; border: 1px solid #d8d8d8;box-sizing: border-box; display: inline-block;}
+	.shCMSshop .shopView .viewHeader .productInfo .item .item-name{font-size: 16px; font-weight: 300;}
+	.shCMSshop .shopView .viewHeader .productInfo .item .item-name+span{display: inline-flex; margin-left: 40%;}
+	.shCMSshop .shopView .viewHeader .productInfo .item .item-name+span a{padding-top: 2px; text-align: center;}
+	.shCMSshop .shopView .viewHeader .productInfo input[type="number"]{margin: 0 -1px;padding-top: 4px;width: 40px; border:1px solid #d8d8d8;text-align: right;}
+	.shCMSshop .shopView .viewHeader .productInfo .item-price{font-family: "Tahoma"; font-weight: bold; font-size: 18px; margin-left: 5%;}
+	.shCMSshop .shopView .viewHeader .productInfo .item-price+a{float:right; text-align: center; width: 18px; height: 18px; margin: 5px 10px 0 0; font-weight: bold; padding-bottom: 18px;}
+	.shCMSshop .shopView .viewHeader .productInfo .all-price{margin-top: 55px; text-align: right; white-space: pre; font-size: 18px;}
+	.shCMSshop .shopView .viewHeader .productInfo .all-price span{font-family: "Tahoma"; font-size: 25px; font-weight: bold; color: #e63740;}
+	.shCMSshop .shopView .viewHeader .productInfo .btn{text-align: right;margin-top: 40px;}
+	.shCMSshop .shopView .viewHeader .productInfo .btn a{padding: 15px 56px;font-size: 22px; display: inline-block;}
+	.shCMSshop .shopView .viewHeader .productInfo .btn a:first-child{color: black; border: 1px solid black; box-sizing: border-box;}
+	.shCMSshop .shopView .viewHeader .productInfo .btn a:last-child{background: #e63740; color: white; font-size: 22px;margin-left: 26px; border:1px solid #e63740;}
+
+	.shCMSshop .shopView .viewBody{margin-top: 100px;}
+	.shCMSshop .shopView .viewBody .contentNav:after{display: block;content:'';clear: both;}
+	.shCMSshop .shopView .viewBody .contentNav li{width: 25%; float: left; background: #f2f2f2; border: 1px solid #282e32; box-sizing: border-box; text-align: center;margin-right: -1px;font-size: 18px;}
+	.shCMSshop .shopView .viewBody .contentNav a{display: block; padding:20px 0;}
+	.shCMSshop .shopView .viewBody .contentNav a span{font-size: 15px;}
+	.shCMSshop .shopView .viewBody .contentNav a span .count{font-size: 15px;}
+	.shCMSshop .shopView .viewBody .contentNav li.active{background: #282e32;}
+	.shCMSshop .shopView .viewBody .contentNav li.active a{color: white;}
+
+	/*테이블 기본 셋팅*/
+	.shCMSshop .shopView .viewBody table{border-top: 1px solid #afafaf; border-bottom: 1px solid #d4d4d4; width: 100%; margin: 60px 0 40px 0; border-collapse: collapse; border-spacing: 0;font-size: 14px;}
+	.shCMSshop .shopView .viewBody thead>tr{height:40px;background: #f2f2f2;text-align: center;}
+	.shCMSshop .shopView .viewBody table tr{border-top:1px solid #d4d4d4;}
+	.shCMSshop .shopView .viewBody table tr:first-child{border-top: none;}
+	.shCMSshop .shopView .viewBody table .tcontent{text-align: left;}
+	.shCMSshop .shopView .viewBody table .tcontent:hover{cursor: pointer;}
+	.shCMSshop .shopView .viewBody table .tcontent:hover span{text-decoration: underline;}
+	.shCMSshop .shopView .viewBody table .tcontent span{white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 225px; display: inline-block;}
+	/*상품 정보*/
+	.shCMSshop .shopView .viewBody .tproduct-info tr:first-child{border-top:2px solid #5d5d5d;}
+	.shCMSshop .shopView .viewBody .tproduct-info tr td{padding: 0 13px; line-height: 20px;}
+	.shCMSshop .shopView .viewBody .tproduct-info tr td:first-child{background: #f2f2f2; height: 50px; padding-left: 20px; width: 16.5%;}
+	.shCMSshop .shopView .viewBody .tproduct-info tr td:nth-child(3){background: #f2f2f2; width: 16.5%; padding-left: 20px;}
+	/*상품 후기*/
+	.shCMSshop .shopView .viewBody .tproduct-review thead>tr>td:first-child{width: 130px; background: #f2f2f2; height: 40px;text-align: center;}
+	.shCMSshop .shopView .viewBody .tproduct-review thead>tr>td:nth-child(3){width: 140px;}
+	.shCMSshop .shopView .viewBody .tproduct-review thead>tr>td:last-child{width: 145px;text-align: center;}
+	.shCMSshop .shopView .viewBody .tproduct-review tr{height: 50px; text-align: center;}
+	/*상품 후기 더보기*/
+	.shCMSshop .shopView .viewBody .tproduct-review .detail-content{display: none;}
+	.shCMSshop .shopView .viewBody .tproduct-review .detail-content td:first-child{width: 130px;}
+	.display{display:table-row!important;border-top:none!important;}
+	.overflow{overflow:inherit!important;}
+	.text{width: 207px!important; text-overflow: unset!important;}
+	/*Q & A 테이블 감싸기 - 문의하기 버튼 넣기 용도*/
+	.shCMSshop .shopView .viewBody .tquestion{position: relative;}
+	.shCMSshop .shopView .viewBody .tquestion a{position: absolute; right: 0; top: -40px; padding:8px 12px; background: #666; color:white; font-size: 14px;}
+	/*Q & A*/
+	.shCMSshop .shopView .viewBody .tquestion thead>tr>td:first-child{width: 72px; background: #f2f2f2; height: 40px;text-align: center;}
+	.shCMSshop .shopView .viewBody .tquestion thead>tr>td:nth-child(3){width: 140px;}
+	.shCMSshop .shopView .viewBody .tquestion thead>tr>td:last-child{width: 145px;}
+	.shCMSshop .shopView .viewBody .tquestion tr{text-align: center;}
+	.shCMSshop .shopView .viewBody .tquestion tr{height: 40px;}
+	.shCMSshop .shopView .viewBody .tquestion tr:first-child~tr td:nth-child(2){width: 95px;}
+	.shCMSshop .shopView .viewBody .tquestion td.answer-no{color: #e63740;}
+	.shCMSshop .shopView .viewBody .tquestion td.answer-ok{color: #3c43c7;}
+
+	/*jquery용 테이블 셋팅*/
+	.shCMSshop .shopView .viewBody table{display: none;}
+	.shCMSshop .shopView .viewBody table.active{display: table;}
+</style>
+
+<script>
+var price_sum = 0;
+var options = [];
+ $(document).ready(function(){
+   // 상품 옵션에서 선택하면 추가 부분 - 완
+   $('select').change(function(){ //옵션을 선택할때마다
+      if($('option:selected').text()!='선택하세요'){ //text값이 선택하세요가 아닐경우만
+      var slt=$('option:selected').text(); //선택된 텍스트 추출
+      var item = slt.split('-'); //앞 상품 추출
+      }
+
+		//선택된 것이 있으면 재 선택 불가능. - 완
+		//item클래스를 가진 것들 for문으로 반복해서 검사할것. 1. 어렵게 한다면. option의 값을 저장하고 순회하며 비교하기.  2. 순회하며 서로서로 비교하기
+    if($.inArray($.trim(item[0]), options) >= 0){
+        // alert('중복');
+      }else{
+        options.push($.trim(item[0]));
+				$('.items').append('<div class="item"><span class="item-name">'+item[0]+'</span><span class="item-count"><a href="#" class="minur">-</a><input type="number" value="1" class="number" disabled><a href="#" class="plus">+</a></span><span class="item-price">'+item[1]+'</span><a href="#" class="item-close">x</a></div>');
+		// 총 상품 금액 실시간으로 계산하기 - 완
+ 	      var price = parseInt(item[1].split('원'));  //상품가격에서 원 제외하
+ 	      price_sum += price;
+ 	      $('.all-price span').html(price_sum);
+      }
+      // console.log(options);
+   });
+
+   // 탭 변경 부분 - 완
+   $('.contentNav li').click(function(e){
+      e.preventDefault();
+  var idx = $(this).index();
+  $('.contentNav li').removeClass('active').eq(idx).addClass('active');
+  $('table').removeClass('active').eq(idx).addClass('active');
+ });
+
+   // 상품 후기 부분 - 임시 완
+   $('.tproduct-review tbody tr .tcontent').click(function(){
+   //전체 글자의 변수를 2번 잡아서 . 한번은 위쪽 내용. 한번은 아래쪽 내용 출력
+   //위쪽 내용
+    var text = $(this).children('span').html(); //전체 html또는 text를 가져와서
+    var full = $(this).closest('tr').next('tr').children('td').eq(1).text(text).css('text-align','left'); // tr 출력후 나머지 글자 출력 및 정렬
+    // var cut = $(this).closest('tr').next('tr').children('td').eq(1).text();
+   $(this).closest('tr').next('tr').toggleClass('display'); //자세한 이용후기 tr 출력하기
+  });
+});
+
+//상품 목록에서 삭제 기능 - 완
+$(document).on('click','.item-close',{},function(e){
+   e.preventDefault();
+   var $el = $(e.currentTarget);
+   $el.closest('.item').remove();
+   //삭제 시 총 가격에서 빼기 - 50% 완(전역으로 지정한 price_sum은 0으로 초기화가 안되고있음)
+   var src_price = $el.siblings('.item-price').text();
+   var price = src_price.split('원');
+   var price_sum = $('.all-price span').html();
+   var result_price = price_sum - price[0];
+   $('.all-price span').html(result_price);
+   // var price_sum = 0;
+
+   //  if($('.item').length = '0'){
+   //  var price_sum = 0;
+   //     $('.all-price span').html(price_sum);
+   // }
+	 if($('.item').length='0'){
+			var price_sum = 0;
+	 }
+  options = $.grep(options, function(value) {
+    return value != $.trim($el.closest('.item').find('.item-name').text());
+  });
+  // console.log(options);
+var price_sum = 0;
+});
+var price_sum = 0;
+</script>
+</head>
+
+<body>
+	<p>퇴사 직전 하고 있던 자사의 쇼핑몰 상세페이지 수정 부분입니다. <br>
+	상품금액이 초기화가 되지 않는 문제가 있습니다.</p>
+
+	<div class="shCMSshop">
+		<div class="shopView">
+			<div class="viewHeader">
+				<!-- 상품이미지 -->
+				<div class="productImg">
+					<div class="mainImg">
+						<img src="main.jpg" alt="">
+					</div>
+					<ul class="subImg">
+						<li><img src="sub01.jpg" alt="서브 이미지1"></li>
+						<li><img src="sub02.jpg" alt="서브 이미지2"></li>
+						<li><img src="sub01.jpg" alt="서브 이미지3"></li>
+						<li><img src="sub01.jpg" alt="서브 이미지4"></li>
+					</ul>
+				</div>
+				<!-- 상품 설명 -->
+				<div class="productInfo">
+					<h3>장수애 백김치<span>1kg/3kg/5kg</span></h3>
+					<div class="price">
+						<span class="sale">20<span>%</span></span>
+						<span class="cost-price">9,000원</span>
+						<span class="sale-price">7,200원~</span>
+					</div>
+					<div class="manufact">제조사       <span>농업회사법인 움채주식회사</span></div>
+					<div class="categori">분류           <span>기타김치</span></div>
+					<div class="origin">원산지       <span>각 재료 별 원산지는 상세설명 참조</span></div>
+					<div class="items">
+						<select class="" name="" id="option">
+							<option value="" selected>선택하세요</option>
+							<option value="">장수애 백김치 1kg -  <span>7200원</span></option>
+							<option value="">장수애 백김치 3kg - <span>19800원</span></option>
+							<option value="">장수애 백김치 5kg - <span>33000원</span></option>
+						</select>
+						<!-- <div class="item">
+							<span class="item-name">장수애 백김치 1kg</span>
+							<span class="item-count">
+								<a href="" class="minur">-</a>
+								<input type="number" value="1" class="number" disabled>
+								<a href="" class="plus">+</a>
+							</span>
+							<span class="item-price">14,400원</span>
+							<a href="" class="item-close">x</a>
+						</div>
+						<div class="item">
+							<span class="item-name">장수애 백김치 1kg</span>
+							<span class="item-count">
+								<a href="" class="minur">-</a>
+								<input type="number" value="1" class="number" disabled>
+								<a href="" class="plus">+</a>
+							</span>
+							<span class="item-price">14,400원</span>
+							<a href="" class="item-close">x</a>
+						</div> -->
+					</div>
+					<div class="all-price">총 상품금액        <span>0</span>원</div>
+					<div class="btn">
+						<a href="">장바구니</a>
+						<a href="">구매하기</a>
+					</div>
+				</div>
+			</div>
+<!-- 하단의 탭부분 시작 -->
+			<div class="viewBody">
+				<ul class="contentNav">
+					<li class="active"><a href="">상품 정보</a></li>
+					<li><a href="">상품 후기<span>(<span class="count">20</span>)</span></a></li>
+					<li><a href="">Q & A <span></span></a></li>
+					<li><a href="">반품 / 교환</a></li>
+				</ul>
+				<!-- 탭부분 끝 -->
+				<!-- 상품정보 -->
+				<table class="tproduct-info active">
+					<tr>
+						<td>제품명</td>
+						<td>장수애 열무김치</td>
+						<td>식품의 유형</td>
+						<td>기타김치/비살균제품</td>
+					</tr>
+					<tr>
+						<td>용량</td>
+						<td>1kg ,3kg, 5kg</td>
+						<td>제조사</td>
+						<td>농업회사법인 움채주식회사</td>
+					</tr>
+					<tr>
+						<td>제조년월일</td>
+						<td>제조일로부터 일주일이내 포장된 제품으로 발송됩니다.</td>
+						<td>품질유지기한</td>
+						<td>제조일로부터 120일</td>
+					</tr>
+					<tr>
+						<td>보관방법</td>
+						<td colspan="3">김치는 숨을 쉬는 발효식품입니다. 받으시면 꼭 김치통에 옮겨서 보관해주세요. 익혀서 드실 경우 포기에 기포가 살짝 생길 때까지 기다리신 후 김치 냉장고에 넣어 드시면 됩니다.</td>
+					</tr>
+					<tr>
+						<td>원재료명 및 함량</td>
+						<td colspan="3">“열무 80.04%[국산], 고춧가루 3.04$[국산]. 열무 80.04%[국산], 고춧가루 3.04$[국산]. 열무 80.04%[국산], 고춧가루 3.04$[국산]. 열무 80.04%[국산], 고춧가루
+3.04$[국산]. 열무 80.04% [국산], 고춧가루 3.04$[국산].  열무 80.04%[국산]</td>
+					</tr>
+				</table>
+				<!-- 상품 후기 -->
+				<table class="tproduct-review">
+					<thead>
+						<tr>
+							<td>평점</td>
+							<td>내용</td>
+							<td>작성자</td>
+							<td>작성일</td>
+						</tr>
+					</thead>
+					<tr>
+						<td>별점</td>
+						<td class="tcontent"><img src="" alt=""><span>내용 - 짧은 내용(동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세</span></td>
+						<td>rud***</td>
+						<td>2017-09-26 10:20</td>
+					</tr>
+					<tr class="detail-content">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>별점</td>
+						<td class="tcontent"><img src="" alt=""><span>내용 - 짧ㅁㄴㅇㄻㄴㅇㄻㄴ은 내용(동해물과 백두산이 마르고 닳도록 블라불라블라 </span></td>
+						<td>rud***</td>
+						<td>2017-09-26 10:20</td>
+					</tr>
+					<tr class="detail-content">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr><tr>
+						<td>별점</td>
+						<td class="tcontent"><img src="" alt=""><span>내용 - 짧은 내용(동해물과 백두산이 마르고 닳도록 </span></td>
+						<td>rud***</td>
+						<td>2017-09-26 10:20</td>
+					</tr>
+					<tr class="detail-content">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				<!-- Q & A  -->
+					<table class="tquestion">
+						<thead>
+							<tr>
+								<td>번호</td>
+								<td colspan="2">내용</td>
+								<td>작성자</td>
+								<td>작성일
+								<a href="">문의 하기</a>
+								</td>
+							</tr>
+					</thead>
+						<tr>
+							<td>글번호</td>
+							<td class="answer-no">미완료</td>
+							<td class="tcontent">내용 - 문의</td>
+							<td>rud***</td>
+							<td>2017-09-26 10:20</td>
+						</tr>
+						<tr>
+							<td>글번호</td>
+							<td class="answer-ok">답변완료</td>
+							<td class="tcontent">내용 - 문의</td>
+							<td>rud***</td>
+							<td>2017-09-26 10:20</td>
+						</tr>
+					</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

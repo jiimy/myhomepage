@@ -1,0 +1,29 @@
+@charset "utf-8";
+/*초기화 셋팅*/
+html, body {min-height: 100%}
+body {background: #fff;overflow-y: scroll;.overflow-y: none}
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, form, fieldset, input, button, textarea, select, address {
+	margin: 0;
+	padding: 0
+}
+
+body, table, input, textarea, select, button {
+	font-family: NanumBarunGothic, NBG, NG, Nanum Gothic, Dotum, Tahoma, Geneva, sans-serif !important;
+	font-size: 12px
+}
+
+header, footer, section, article, nav, aside, figure, figcaption {display: block}
+ul, ol, dl {list-style: none;}
+a {color: #363636;text-decoration: none;}
+img {border: 0;}
+hr {display: none;}
+.content {outline: 0;}
+
+/* IE6 PNG bug fix */
+.png24 {tmp: expression(setPng24(this))}
+
+
+/* Skip to Content Button */
+.skipToContent {display: block;width: 120px;z-index: 1;position: absolute;left: 50%;top: 10px;margin: 0 0 0 -60px}
+.skipToContent a {display: block;height: 1px;overflow: hidden;text-indent: -1000px;cursor: default}
+.skipToContent a:focus, .skipToContent a:active {height: 12px;text-align: center;text-indent: 0;padding: 7px 0;background: #666;color: #fff;border-radius: 15px}

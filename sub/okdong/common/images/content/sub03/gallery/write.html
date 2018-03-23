@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="mgmt/board/skin/<?=$cyboard_var['skinName']?>/css/board.css">
+<div class="boardWriteWrap">
+	<div class="writeTable">
+		<table border="0" cellspacing="0" cellpadding="0" class="write_table">
+			<tbody>
+				<?=$dispCategoryStart?>
+				<tr>
+					<th width="18%">카테고리</th>
+					<td width="82%">
+						<?=$categorySelect?>
+					</td>
+				</tr>
+				<?=$dispCategoryEnd?>
+				<tr>
+					<th width="18%">작성자</th>
+					<td width="82%"><input type="text" name="o_name" size="12" value="<?=$dispName?>">&nbsp;&nbsp;<?=$dispNotice?></td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="o_password" size="12" autocomplete="off">&nbsp;&nbsp;<?=$dispPassStr?> (비밀문서 <input class="checkBox" style="vertical-align:middle" type="checkbox" name="o_secret" value="1" <?=$dispSecretKind?>>)</td>
+				</tr>
+				<?=$dispInputDateStart?>
+				<tr>
+					<th>작성일</th>
+					<td><input type="text" name="o_input_date" value="<?=$dispInputDate?>" /></td>
+				</tr>
+				<?=$dispInputDateEnd?>
+				<tr>
+					<th>제목</th>
+					<td><input type="text" name="o_title" size="50" value="<?=$dispTitle?>"></td>
+				</tr>
+				<tr>
+					<th>스팸방지</th>
+					<td style="padding:10px 0 10px 20px"><img src="mgmt/secNum.php?w=48&h=15" alt=""><input type="text" size="8" name="o_secNum"><br><span>* 스팸방지를 위해 왼쪽 숫자를 입력해주세요</span><br><span>* 숫자가 보이지 않을 시에는 새로고침(F5)하여 주시기 바랍니다.</span></td>
+				</tr>
+				
+				<?=$dispWebEditorYStart?>
+				<tr>
+					<th>내용</th>
+					<td style="padding:7px 0 7px 20px">
+						<textarea id="o_content" name="o_content" style="display:none"></textarea>
+						<textarea id="ir1" name="ir1" style="width:100%;height:300px;display:none;"><?=$dispContent?></textarea>
+						<iframe name="seditor_photo_ir1" id="seditor_photo_ir1" width="100%" height="90" border="0" frameborder="0"></iframe>
+					</td>
+				</tr>
+				<?=$dispWebEditorYEnd?>
+				<?=$dispWebEditorNStart?>
+				<tr>
+					<th>내용</th>
+					<td style="padding:7px 0 7px 20px"><textarea id="o_content" name="o_content" style="width:98%;height:200px;"><?=$dispContent?></textarea></td>
+				</tr>
+				<?=$dispWebEditorNEnd?>
+
+				<?=$dispFileUseStart?>
+				<tr class="addfile">
+					<th>파일</th>
+					<td style="padding:7px 0 7px 20px"><?=$dispFileView?></td>
+				</tr>
+				<?=$dispFileUseEnd?>
+			</tbody>
+		</table>
+		
+	</div>
+	<div class="boardBtn">
+		<div class="btn_left">
+			<a href="<?=$dispListLink?>">목록</a>
+		</div>
+		<div class="btn_right">
+			<a href="<?=$dispSaveLink?>">저장</a>
+		</div>
+	</div>
+	
+</div>
